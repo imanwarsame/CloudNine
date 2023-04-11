@@ -7,12 +7,14 @@ import WeatherCard from './Components/WeatherCard';
 import { darkTheme, lightTheme } from './Theme';
 import ThemeToggle from './Components/ThemeToggle';
 import { useSelector } from 'react-redux';
+import Notification from './Components/Notification';
 
 export default function App() {
 	const [lat, setLat] = useState();
 	const [long, setLong] = useState();
 	const [data, setData] = useState(null);
 	const mode = useSelector(state => state.colour_theme);
+	const notification = useSelector(state => state.notification);
 	const theme = mode === 'light' ? lightTheme : darkTheme;
 
 	useEffect(() => {
@@ -44,11 +46,12 @@ export default function App() {
 		<ThemeProvider theme={theme}>
 			{/* Globally resets CSS to create a baseline to build on */}
 			<CssBaseline/>
+			<ThemeToggle/>
+			{notification !== '' && <Notification/>}
 			<Box>
 				<WeatherDate/>
 				{(data !== null) ? (<WeatherCard data={data}/>): (<div></div>)}
 			</Box>
-			<ThemeToggle/>
 		</ThemeProvider>
 	);
 }
