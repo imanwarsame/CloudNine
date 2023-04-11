@@ -19,17 +19,18 @@ export default function WeatherCard({ data }) {
 			</Grid>
 			<Grid item xs={4}>
 				<Paper sx={{ p: 2 }}>
-					<Typography>{data.name}</Typography>
+					<Typography>Description: {data.weather[0].description.charAt(0).toUpperCase() + data.weather[0].description.slice(1)}</Typography>
 				</Paper>
 			</Grid>
 			<Grid item xs={4}>
 				<Paper sx={{ p: 2 }}>
-					<Typography>{data.name}</Typography>
+					<Typography>Sunrise: {new Date(data.sys.sunrise * 1000).toLocaleTimeString('en-GB')}</Typography>
+					<Typography>Sunset: {new Date(data.sys.sunset * 1000).toLocaleTimeString('en-GB')}</Typography>
 				</Paper>
 			</Grid>
 			<Grid item xs={8}>
 				<Paper sx={{ p: 2 }}>
-					<Typography>{data.name}</Typography>
+					<Typography>Humidity: {data.main.humidity}%</Typography>
 				</Paper>
 			</Grid>
 		</Grid>

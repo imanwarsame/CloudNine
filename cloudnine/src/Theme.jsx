@@ -7,7 +7,7 @@ const lightTheme = createTheme({
 			main: '#FFFFFF',
 		},
 		secondary: {
-			main: '#FFD93D',
+			main: '#F38181',
 		},
 	},
 	components: {
