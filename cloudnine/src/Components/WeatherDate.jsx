@@ -19,12 +19,22 @@ const months = [
 
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
+const nth = function(d) {
+	if (d > 3 && d < 21) return 'th';
+	switch (d % 10) {
+	case 1:  return 'st';
+	case 2:  return 'nd';
+	case 3:  return 'rd';
+	default: return 'th';
+	}
+};
+
 function formatDate(d) {
 	const day = days[d.getDay()];
 	const date = d.getDate();
 	const month = months[d.getMonth()];
 	const year = d.getFullYear();
-	return `${month} ${date}, ${year} | ${day}`;
+	return `${day} the ${date}${nth(date)} of ${month}, ${year}`;
 }
 
 export default function WeatherDate() {
