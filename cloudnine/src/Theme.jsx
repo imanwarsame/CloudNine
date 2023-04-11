@@ -21,7 +21,7 @@ const lightTheme = createTheme({
 		MuiPaper: {
 			styleOverrides: {
 				root: {
-					borderRadius: 20,
+					borderRadius: 10,
 				},
 			}
 		}
