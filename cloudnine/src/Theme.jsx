@@ -14,7 +14,7 @@ const lightTheme = createTheme({
 		MuiCssBaseline: {
 			styleOverrides: {
 				body: {
-					backgroundImage: 'linear-gradient(to right, #3494e6, #ec6ead)'
+					backgroundImage: 'linear-gradient(to right, #fceabb, #f8b500)'
 				},
 			}
 		},
@@ -22,6 +22,7 @@ const lightTheme = createTheme({
 			styleOverrides: {
 				root: {
 					borderRadius: 10,
+					backgroundColor: '#F9F7F7'
 				},
 			}
 		}
@@ -37,7 +38,27 @@ const darkTheme = createTheme({
 		secondary: {
 			main: '#A5D7E8',
 		},
+		background: {
+			default: '#222831',
+		},
 	},
+	components: {
+		MuiCssBaseline: {
+			styleOverrides: {
+				body: {
+					backgroundImage: 'linear-gradient(to right, #000428, #004e92)'
+				},
+			}
+		},
+		MuiPaper: {
+			styleOverrides: {
+				root: {
+					borderRadius: 10,
+					backgroundColor: '#1B262C'
+				},
+			}
+		}
+	}
 });
 
 export { darkTheme, lightTheme };

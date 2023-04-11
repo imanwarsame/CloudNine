@@ -6,7 +6,7 @@ const Notification = () => {
 	const notification = useSelector(state => state.notification);
 
 	function transition (props) {
-		return <Slide {...props} direction='right'/>;
+		return <Slide {...props} direction='up'/>;
 	}
 
 	return (

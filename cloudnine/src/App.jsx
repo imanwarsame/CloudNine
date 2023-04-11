@@ -48,7 +48,7 @@ export default function App() {
 			<CssBaseline/>
 			<ThemeToggle/>
 			{notification !== '' && <Notification/>}
-			<Box>
+			<Box display='flex' flexDirection='column' alignItems='center'>
 				<WeatherDate/>
 				{(data !== null) ? (<WeatherCard data={data}/>): (<div></div>)}
 			</Box>

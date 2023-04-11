@@ -1,6 +1,5 @@
 import React from 'react';
-import Typography from '@mui/material/Typography';
-import { Box } from '@mui/material';
+import { Typography } from '@mui/material';
 
 const months = [
 	'January',
@@ -39,8 +38,6 @@ function formatDate(d) {
 
 export default function WeatherDate() {
 	return (
-		<Box>
-			<Typography variant='h4'>{formatDate(new Date())}</Typography>
-		</Box>
+		<Typography sx={{ p: 5 }} variant='h4'>{formatDate(new Date())}</Typography>
 	);
 }
