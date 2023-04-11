@@ -1,38 +1,19 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import Typography from '@mui/material/Typography';
-import { Box } from '@mui/material';
-
-const months = [
-	'January',
-	'February',
-	'March',
-	'April',
-	'May',
-	'June',
-	'July',
-	'August',
-	'September',
-	'October',
-	'November',
-	'December',
-];
-
-const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
-function formatDate(d) {
-	const day = days[d.getDay()];
-	const date = d.getDate();
-	const month = months[d.getMonth()];
-	const year = d.getFullYear();
-	return `${month} ${date}, ${year} | ${day}`;
-}
+import { Box, CssBaseline, ThemeProvider } from '@mui/material';
+import WeatherDate from './Components/WeatherDate';
+import WeatherCard from './Components/WeatherCard';
+import { darkTheme, lightTheme } from './Theme';
+import ThemeToggle from './Components/ThemeToggle';
+import { useSelector } from 'react-redux';
 
 export default function App() {
 	const [lat, setLat] = useState();
 	const [long, setLong] = useState();
-	const [data, setData] = useState([]);
+	const [data, setData] = useState(null);
+	const mode = useSelector(state => state.colour_theme);
+	const theme = mode === 'light' ? lightTheme : darkTheme;
 
 	useEffect(() => {
 		navigator.geolocation.getCurrentPosition(function (position) {
@@ -60,35 +41,14 @@ export default function App() {
 	}, [lat,long]);
 
 	return (
-		<div>
-			<Typography variant='h4'>{formatDate(new Date())}</Typography>
-			{(typeof data.main !== 'undefined') ? (
-				<Box>
-					<Typography>{Math.round(data.main.temp)}°C</Typography>
-					<Typography>{data.name}</Typography>
-				</Box>
-			): (
-				<div></div>
-			)}
-		</div>
+		<ThemeProvider theme={theme}>
+			{/* Globally resets CSS to create a baseline to build on */}
+			<CssBaseline/>
+			<Box>
+				<WeatherDate/>
+				{(data !== null) ? (<WeatherCard data={data}/>): (<div></div>)}
+			</Box>
+			<ThemeToggle/>
+		</ThemeProvider>
 	);
 }
-
-// function App() {
-// 	const [weather, setWeather] = useState(null);
-// 	useEffect(() => {
-// 		getLocalWeather().then(setWeather, console.error);
-// 	}, []);
-
-// 	return (
-// 		<div className="App">
-// 			<Typography>{formatDate(new Date())}</Typography>
-// 			{(typeof weather.main !== 'undefined') ? <Typography>{Math.round(weather.main.temp)}°C</Typography> : null}
-// 			{/* <Typography>{lat}</Typography>
-// 			<Typography>{long}</Typography> */}
-// 			{/* <Typography>Temperature: {data.main.temp}°C</Typography> */}
-// 		</div>
-// 	);
-// }
-
-// export default App;
