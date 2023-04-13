@@ -7,6 +7,8 @@ Weather app built with React and the Open Weather API
 ## Live App
 
 - [Live website](https://6437eb671edf0f2380bf3e00--endearing-begonia-fd2c99.netlify.app/)
+
+
 ## Installation and Running
 
 ```bash
@@ -14,7 +16,8 @@ Weather app built with React and the Open Weather API
   npm i
   npm run dev
 ```
-    
+
+
 ## Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env file
@@ -25,5 +28,11 @@ To run this project, you will need to add the following environment variables to
 
 
 ## 🔗 Links
+
 [![Github](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/imanwarsame)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/imanwarsame/)
+
+
+## Credits
+
+Weather by Muammar Khalid from <a href="https://thenounproject.com/browse/icons/term/weather/" target="_blank" title="weather Icons">Noun Project</a>
