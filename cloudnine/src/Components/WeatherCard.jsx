@@ -1,25 +1,23 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
-import { Button, Grid, Paper, SvgIcon, Typography } from '@mui/material';
+import { Button, Grid, Paper, Typography } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { setNotification } from '../Reducers/NotificationReducer';
-import { ReactComponent as DustWindIcon } from '../Assets/weather_icons/dust-wind.svg';
-import { ReactComponent as DrizzleIcon } from '../Assets/weather_icons/drizzle.svg';
+import WeatherIcon from './WeatherIcon';
 
 export default function WeatherCard({ data }) {
 	const dispatch = useDispatch();
-	const [icon, setIcon] = useState();
 
-	useEffect(() => {
-		const weatherID = data.weather[0].id;
-		console.log(weatherID);
+	const checkIfDay = () => {
+		let dayTime = false;
 
-		if (weatherID === 500) {
-			setIcon(DrizzleIcon);
+		if (new Date().valueOf() / 1000 < data.sys.sunset) {
+			dayTime = true;
 		} else {
-			setIcon(DustWindIcon);
+			dayTime = false;
 		}
-	}, []);
+
+		return dayTime;
+	};
 
 	return (
 		<Grid container spacing={2} sx={{ mx: 'auto', width: '75%' }}>
@@ -27,9 +25,7 @@ export default function WeatherCard({ data }) {
 				<Paper sx={{ p: 2 }}>
 					<Typography>{Math.round(data.main.temp)}°C</Typography>
 					<Typography>{data.name}</Typography>
-					<SvgIcon fontSize='large'>
-						{icon}
-					</SvgIcon>
+					<WeatherIcon weatherID={data.weather[0].id} dayTime={checkIfDay()}/>
 					<Button variant='outlined' color='secondary' onClick={() => dispatch(setNotification('success', 'This worked', 4))}>Hello</Button>
 				</Paper>
 			</Grid>
