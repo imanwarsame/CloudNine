@@ -23,10 +23,16 @@ export default function WeatherCard({ data }) {
 		<Grid container spacing={2} sx={{ mx: 'auto', width: '75%' }}>
 			<Grid item xs={8}>
 				<Paper sx={{ p: 2 }}>
-					<Typography>{Math.round(data.main.temp)}°C</Typography>
-					<Typography>{data.name}</Typography>
-					<WeatherIcon weatherID={data.weather[0].id} dayTime={checkIfDay()}/>
-					<Button variant='outlined' color='secondary' onClick={() => dispatch(setNotification('success', 'This worked', 4))}>Hello</Button>
+					<Grid container>
+						<Grid item xs={6}>
+							<WeatherIcon weatherID={data.weather[0].id} dayTime={checkIfDay()}/>
+						</Grid>
+						<Grid item xs={6}>
+							<Typography>{Math.round(data.main.temp)}°C</Typography>
+							<Typography>{data.name}</Typography>
+							<Button variant='outlined' color='secondary' onClick={() => dispatch(setNotification('success', 'This worked', 4))}>Hello</Button>
+						</Grid>
+					</Grid>
 				</Paper>
 			</Grid>
 			<Grid item xs={4}>

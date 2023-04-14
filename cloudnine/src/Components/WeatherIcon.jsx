@@ -32,9 +32,6 @@ export default function WeatherIcon({ weatherID, dayTime }) {
 	const [icon, setIcon] = useState();
 
 	useEffect(() => {
-		console.log(weatherID);
-		console.log(dayTime);
-
 		if (dayTime === true) {
 			if (weatherID > 200 && weatherID < 300) {
 				if (weatherID >= 210 && weatherID <= 221) {
@@ -107,7 +104,7 @@ export default function WeatherIcon({ weatherID, dayTime }) {
 	}, []);
 
 	return (
-		<SvgIcon fontSize='large'>
+		<SvgIcon sx={{ fontSize: '200px' }}>
 			{icon}
 		</SvgIcon>
 	);
