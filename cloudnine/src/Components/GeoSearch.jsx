@@ -6,7 +6,7 @@ import { AsyncPaginate } from 'react-select-async-paginate';
 const geoApiOptions = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': 'ae913679bcmshd4c53807be171ecp191696jsn7e4b4eb15630',
+		'X-RapidAPI-Key': import.meta.env.VITE_GEO_API_KEY,
 		'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
 	}
 };

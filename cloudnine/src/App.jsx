@@ -13,6 +13,7 @@ import GeoSearch from './Components/GeoSearch';
 export default function App() {
 	const [lat, setLat] = useState();
 	const [long, setLong] = useState();
+	const [city, setCity] = useState('');
 	const [data, setData] = useState(null);
 	const mode = useSelector(state => state.colour_theme);
 	const notification = useSelector(state => state.notification);
@@ -45,8 +46,10 @@ export default function App() {
 
 	const handleOnSearchChange = (searchData) => {
 		const [lat, lon] = searchData.value.split(' ');
+		const [cityName] = searchData.label.split(', ');
 		setLat(lat);
 		setLong(lon);
+		setCity(cityName);
 	};
 
 	return (
@@ -58,7 +61,7 @@ export default function App() {
 			<Box display='flex' flexDirection='column' alignItems='center'>
 				<WeatherDate/>
 				<GeoSearch onSearchChange={handleOnSearchChange}/>
-				{(data !== null) ? (<WeatherCard data={data}/>): (<div></div>)}
+				{(data !== null) ? (<WeatherCard data={data} city={city}/>): (<div></div>)}
 			</Box>
 		</ThemeProvider>
 	);
