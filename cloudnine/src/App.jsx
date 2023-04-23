@@ -8,6 +8,7 @@ import { darkTheme, lightTheme } from './Theme';
 import ThemeToggle from './Components/ThemeToggle';
 import { useSelector } from 'react-redux';
 import Notification from './Components/Notification';
+import GeoSearch from './Components/GeoSearch';
 
 export default function App() {
 	const [lat, setLat] = useState();
@@ -42,6 +43,12 @@ export default function App() {
 
 	}, [lat,long]);
 
+	const handleOnSearchChange = (searchData) => {
+		const [lat, lon] = searchData.value.split(' ');
+		setLat(lat);
+		setLong(lon);
+	};
+
 	return (
 		<ThemeProvider theme={theme}>
 			{/* Globally resets CSS to create a baseline to build on */}
@@ -50,6 +57,7 @@ export default function App() {
 			{notification !== '' && <Notification/>}
 			<Box display='flex' flexDirection='column' alignItems='center'>
 				<WeatherDate/>
+				<GeoSearch onSearchChange={handleOnSearchChange}/>
 				{(data !== null) ? (<WeatherCard data={data}/>): (<div></div>)}
 			</Box>
 		</ThemeProvider>

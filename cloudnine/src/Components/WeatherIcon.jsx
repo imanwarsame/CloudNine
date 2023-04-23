@@ -1,5 +1,4 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
 import { SvgIcon } from '@mui/material';
 import { ReactComponent as ThunderstormsDay } from '../Assets/weather_icons/thunderstorms.svg';
 import { ReactComponent as ThunderstormsNight } from '../Assets/weather_icons/thunderstorms-night.svg';
@@ -29,83 +28,82 @@ import { ReactComponent as ClearDay } from '../Assets/weather_icons/clear-day.sv
 import { ReactComponent as ClearNight } from '../Assets/weather_icons/clear-night.svg';
 
 export default function WeatherIcon({ weatherID, dayTime }) {
-	const [icon, setIcon] = useState();
 
-	useEffect(() => {
+	const weatherSVG = () => {
 		if (dayTime === true) {
 			if (weatherID > 200 && weatherID < 300) {
 				if (weatherID >= 210 && weatherID <= 221) {
-					setIcon(ThunderstormsDay);
+					return <ThunderstormsDay/>;
 				} else {
-					setIcon(ThunderstormsRainDay);
+					return <ThunderstormsRainDay/>;
 				}
 			} else if (weatherID > 300 && weatherID < 400) {
-				setIcon(DrizzleDay);
+				return <DrizzleDay/>;
 			} else if (weatherID > 500 && weatherID < 600) {
-				setIcon(RainDay);
+				return <RainDay/>;
 			} else if (weatherID > 600 && weatherID < 700) {
-				setIcon(SnowDay);
+				return <SnowDay/>;
 			} else if (weatherID === 701) {
-				setIcon(Mist);
+				return <Mist/>;
 			} else if (weatherID === 711) {
-				setIcon(SmokeDay);
+				return <SmokeDay/>;
 			} else if (weatherID === 721) {
-				setIcon(HazeDay);
+				return <HazeDay/>;
 			} else if (weatherID === 731 || weatherID === 751) {
-				setIcon(DustWind);
+				return <DustWind/>;
 			} else if (weatherID === 741) {
-				setIcon(FogDay);
+				return <FogDay/>;
 			} else if (weatherID === 761 || weatherID === 762) {
-				setIcon(DustDay);
+				return <DustDay/>;
 			} else if (weatherID === 771) {
-				setIcon(Wind);
+				return <Wind/>;
 			} else if (weatherID === 781) {
-				setIcon(Tornado);
+				return <Tornado/>;
 			} else if (weatherID > 800) {
-				setIcon(CloudyDay);
+				return <CloudyDay/>;
 			} else {
-				setIcon(ClearDay); //Default value is clear
+				return <ClearDay/>; //Default value is clear
 			}
 		} else {
 			if (weatherID > 200 && weatherID < 300) {
 				if (weatherID >= 210 && weatherID <= 221) {
-					setIcon(ThunderstormsNight);
+					return <ThunderstormsNight/>;
 				} else {
-					setIcon(ThunderstormsRainNight);
+					return <ThunderstormsRainNight/>;
 				}
 			} else if (weatherID > 300 && weatherID < 400) {
-				setIcon(DrizzleNight);
+				return <DrizzleNight/>;
 			} else if (weatherID > 500 && weatherID < 600) {
-				setIcon(RainNight);
+				return <RainNight/>;
 			} else if (weatherID > 600 && weatherID < 700) {
-				setIcon(SnowNight);
+				return <SnowNight/>;
 			} else if (weatherID === 701) {
-				setIcon(Mist);
+				return <Mist/>;
 			} else if (weatherID === 711) {
-				setIcon(SmokeNight);
+				return <SmokeNight/>;
 			} else if (weatherID === 721) {
-				setIcon(HazeNight);
+				return <HazeNight/>;
 			} else if (weatherID === 731 || weatherID === 751) {
-				setIcon(DustWind);
+				return <DustWind/>;
 			} else if (weatherID === 741) {
-				setIcon(FogNight);
+				return <FogNight/>;
 			} else if (weatherID === 761 || weatherID === 762) {
-				setIcon(DustNight);
+				return <DustNight/>;
 			} else if (weatherID === 771) {
-				setIcon(Wind);
+				return <Wind/>;
 			} else if (weatherID === 781) {
-				setIcon(Tornado);
+				return <Tornado/>;
 			} else if (weatherID > 800) {
-				setIcon(CloudyNight);
+				return <CloudyNight/>;
 			} else {
-				setIcon(ClearNight); //Default value is clear
+				return <ClearNight/>; //Default value is clear
 			}
 		}
-	}, []);
+	};
 
 	return (
 		<SvgIcon sx={{ fontSize: '200px' }}>
-			{icon}
+			{weatherSVG()}
 		</SvgIcon>
 	);
 }

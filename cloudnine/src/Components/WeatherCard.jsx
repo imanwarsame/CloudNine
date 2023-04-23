@@ -20,7 +20,7 @@ export default function WeatherCard({ data }) {
 	};
 
 	return (
-		<Grid container spacing={2} sx={{ mx: 'auto', width: '75%' }}>
+		<Grid container spacing={2} sx={{ width: '75%' }}>
 			<Grid item xs={8}>
 				<Paper sx={{ p: 2 }}>
 					<Grid container>
