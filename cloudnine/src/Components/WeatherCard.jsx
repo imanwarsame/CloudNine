@@ -38,8 +38,8 @@ export default function WeatherCard({ data, city }) {
 			</Grid>
 			<Grid item xs={3}>
 				<Paper sx={{ p: 2 }}>
-					<Typography>Sunrise: {new Date(data.sys.sunrise * 1000).toLocaleTimeString(navigator.language, { hour: '2-digit', minute:'2-digit' })}</Typography>
-					<Typography>Sunset: {new Date(data.sys.sunset * 1000).toLocaleTimeString(navigator.language, { hour: '2-digit', minute:'2-digit' })}</Typography>
+					<Typography>Sunrise: {new Date((data.sys.sunrise + data.timezone) * 1000).toLocaleTimeString(navigator.language, { hour: '2-digit', minute:'2-digit' })}</Typography>
+					<Typography>Sunset: {new Date((data.sys.sunset + data.timezone) * 1000).toLocaleTimeString(navigator.language, { hour: '2-digit', minute:'2-digit' })}</Typography>
 				</Paper>
 			</Grid>
 			<Grid item xs={3}>
