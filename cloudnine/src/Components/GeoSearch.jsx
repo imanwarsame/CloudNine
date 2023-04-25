@@ -44,16 +44,34 @@ export default function GeoSearch({ onSearchChange }) {
 		control: (provided, state) => ({
 			...provided,
 			borderRadius: '5px',
-			border: '2px solid #ccc',
-			margin: '10px 0px',
-			minWidth: '75vw',
-			boxShadow: state.isFocused ? '0 0 0 2px #654E92' : null,
+			border: 'none',
+			margin: '10px',
+			minWidth: '50vw',
+			background: theme.palette.background.paper,
+			boxShadow: state.isFocused ? '0 0 0 2px' : null,
+		}),
+		singleValue:(provided) => ({
+			...provided,
+			color: theme.palette.text,
 		}),
 		option: (provided, state) => ({
 			...provided,
-			// backgroundColor: state.isFocused ? theme.palette.secondary.main : null,
-			background: state.isFocused ? 'rgba(33, 42, 62, 0.2)' : null,
+			background: state.isFocused ? 'rgba(33, 42, 62, 0.2)' : theme.palette.background.paper,
+			backgroundColor: theme.palette.secondary.main,
 			color: state.isFocused ? theme.palette.secondary.main : null,
+		}),
+		menu: (provided) => ({
+			...provided,
+			boxShadow: 'none',
+			borderRadius: '5px',
+			border: '2px solid',
+			borderColor: theme.palette.secondary.main,
+			overflow: 'hidden'
+		}),
+		menuList: (provided) => ({
+			...provided,
+			background: theme.palette.background.paper,
+			boxShadow: '0px',
 		}),
 	};
 

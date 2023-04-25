@@ -31,7 +31,7 @@ export default function WeatherCard({ data, city }) {
 	};
 
 	return (
-		<Grid container spacing={2} sx={{ width: '75%', mb: 5 }}>
+		<Grid container spacing={2} sx={{ width: '75%', mb: 5, paddingRight: 2, paddingBottom: 2 }}>
 			<Grid item xs={12}>
 				<Paper sx={{ p: 2 }}>
 					<Grid container>
@@ -47,23 +47,23 @@ export default function WeatherCard({ data, city }) {
 				</Paper>
 			</Grid>
 			<Grid item xs={12} md={3}>
-				<Paper sx={{ p: 2 }}>
+				<Paper sx={{ p: 2, height: '100%' }}>
 					<Typography>Sunrise: {convertDate(new Date((data.sys.sunrise + data.timezone) * 1000))}</Typography>
 					<Typography>Sunset: {convertDate(new Date((data.sys.sunset + data.timezone) * 1000))}</Typography>
 				</Paper>
 			</Grid>
 			<Grid item xs={12} md={3}>
-				<Paper sx={{ p: 2 }}>
+				<Paper sx={{ p: 2, height: '100%' }}>
 					<Typography>Description: {data.weather[0].description.charAt(0).toUpperCase() + data.weather[0].description.slice(1)}</Typography>
 				</Paper>
 			</Grid>
 			<Grid item xs={12} md={3}>
-				<Paper sx={{ p: 2 }}>
+				<Paper sx={{ p: 2, height: '100%' }}>
 					<Typography>Humidity: {data.main.humidity}%</Typography>
 				</Paper>
 			</Grid>
 			<Grid item xs={12} md={3}>
-				<Paper sx={{ p: 2 }}>
+				<Paper sx={{ p: 2, height: '100%' }}>
 					<Typography>Wind speed: {Math.round(data.wind.speed * 2.23694)}mph</Typography>
 					<Typography>Direction: {data.wind.deg}°</Typography>
 				</Paper>

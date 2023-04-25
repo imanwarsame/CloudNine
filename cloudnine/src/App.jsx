@@ -58,7 +58,7 @@ export default function App() {
 			<CssBaseline/>
 			<ThemeToggle/>
 			{notification !== '' && <Notification/>}
-			<Box display='flex' flexDirection='column' alignItems='center'>
+			<Box display='flex' flexDirection='column' alignItems='center' justifyContent='center'>
 				<WeatherDate/>
 				<GeoSearch onSearchChange={handleOnSearchChange}/>
 				{(data !== null) ? (<WeatherCard data={data} city={city}/>): (<div></div>)}

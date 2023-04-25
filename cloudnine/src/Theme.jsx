@@ -9,6 +9,9 @@ const lightTheme = createTheme({
 		secondary: {
 			main: '#F38181',
 		},
+		background: {
+			paper: '#F9F7F7'
+		}
 	},
 	components: {
 		MuiCssBaseline: {
@@ -22,7 +25,6 @@ const lightTheme = createTheme({
 			styleOverrides: {
 				root: {
 					borderRadius: 10,
-					backgroundColor: '#F9F7F7'
 				},
 			}
 		}
@@ -39,7 +41,7 @@ const darkTheme = createTheme({
 			main: '#A5D7E8',
 		},
 		background: {
-			default: '#222831',
+			paper: '#1B262C'
 		},
 	},
 	components: {
@@ -54,7 +56,6 @@ const darkTheme = createTheme({
 			styleOverrides: {
 				root: {
 					borderRadius: 10,
-					backgroundColor: '#1B262C'
 				},
 			}
 		}
