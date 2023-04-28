@@ -9,6 +9,15 @@ Weather app built with React and the Open Weather API
 - [Live website](https://endearing-begonia-fd2c99.netlify.app/)
 
 
+# Packages
+
+- MUI
+- Redux Toolkit
+- Framer Motion
+- Vitest
+- ESLint
+
+
 ## Installation and Running
 
 ```bash

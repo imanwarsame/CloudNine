@@ -1,11 +1,8 @@
 import React from 'react';
-import { Button, Grid, Paper, Typography } from '@mui/material';
-import { useDispatch } from 'react-redux';
-import { setNotification } from '../Reducers/NotificationReducer';
+import { Grid, Paper, Typography } from '@mui/material';
 import WeatherIcon from './WeatherIcon';
 
 export default function WeatherCard({ data, city }) {
-	const dispatch = useDispatch();
 
 	function convertDate(dt) {
 		const h = dt.getUTCHours();
@@ -41,7 +38,6 @@ export default function WeatherCard({ data, city }) {
 						<Grid item xs={12} md={6}>
 							<Typography>{Math.round(data.main.temp)}°C</Typography>
 							{(city === '') ? (<Typography>{data.name}</Typography>): (<Typography>{city}</Typography>)}
-							<Button variant='outlined' color='secondary' onClick={() => dispatch(setNotification('success', 'This worked', 4))}>Hello</Button>
 						</Grid>
 					</Grid>
 				</Paper>
